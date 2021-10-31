@@ -12,7 +12,9 @@ http.createServer(function(request, response){
     response.writeHead(200, {
         'Set-Cookie':['yummy_cookie=choco', 
         'tasty_cookie=strawberry',
-        'Permanent=cookies; Max-Age= '
+        `Permanent=cookies; Max-Age=${60*60*24*30}`,
+        'Secure=Secure; Secure',  // 뒤에 있는게 value를 가진다.
+        'HttpOnly=HttpOnly; HttpOnly'
     ]
     });
     response.end('Cookie!!');
